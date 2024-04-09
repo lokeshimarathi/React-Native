@@ -1,4 +1,8 @@
 rootProject.name = 'Discover'
-apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle")
+applyNativeModulesSettingsGradle(settings)
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
+//need for video player
+include ':react-native-video'
+project (':react-native-video').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-video/android')

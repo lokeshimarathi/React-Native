@@ -1,118 +1,301 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+//Screens
+import SplashScreen from './src/SplashScreen';
+import SignIn from './src/Authentication/SignIn';
+import SignUp from './src/Authentication/SignUp';
+import SignUpCredentials from './src/Authentication/SignUpCredentials';
+import ProfileCreating from './src/Authentication/ProfileCreating';
+import Location from './src/Authentication/Location';
+import Language from './src/Authentication/Language';
+import Interest from './src/Authentication/Interest';
+import Home from './src/Main/Home';
+import Drawer from './src/Main/HomeComponents/Drawer';
+import Public from './src/Main/HomeComponents/Public';
+import Search from './src/Main/HomeComponents/Search';
+import Ask from './src/Main/HomeComponents/Ask';
+import ForMe from './src/Main/HomeComponents/Messages';
+import Profile from './src/Main/DrawerComponents/Profile';
+import Notifications from './src/Main/DrawerComponents/Notifications';
+import Help from './src/Main/DrawerComponents/Help';
+import Information from './src/Main/DrawerComponents/Information';
+import LanguageChange from './src/Main/DrawerComponents/Components/LanguageChange';
+import LocationChange from './src/Main/DrawerComponents/Components/LocationChange';
+import YourActivity from './src/Main/DrawerComponents/YourActivity';
+import EmailChange from './src/Main/DrawerComponents/Components/EmailChange';
+import MediaView from './src/Main/HomeComponents/Components/MediaView';
+import UsersProfile from './src/Main/HomeComponents/Components/UsersProfile';
+import MessageComponent from './src/Main/HomeComponents/Components/MessageComponent';
+import AppCamera from './src/Main/HomeComponents/Components/AppCamera';
+import Messages from './src/Main/HomeComponents/Messages';
+import PostView from './src/Main/DrawerComponents/Components/PostView';
+export type RootStackParamList = {
+  SplashScreen: undefined;
+  SignIn: undefined;
+  SignUp: undefined;
+  SignUpCredentials: {email: string; password: string};
+  ProfileCreating: {
+    email: string;
+    name: string;
+    username: string;
+    password: string;
+  };
+  Location: {
+    profileImage: string;
+    email: string;
+    name: string;
+    username: string;
+    password: string;
+    dateOfBirth: string;
+    gender: string;
+    profession: string;
+    companyOrSchool: string;
+  };
+  Language: {
+    profileImage: string;
+    email: string;
+    name: string;
+    username: string;
+    password: string;
+    dateOfBirth: string;
+    gender: string;
+    profession: string;
+    companyOrSchool: string;
+    Location: {
+      latitude: number;
+      longitude: number;
+    };
   };
 
+  Interest: {
+    profileImage: string;
+    email: string;
+    name: string;
+    username: string;
+    password: string;
+    dateOfBirth: string;
+    gender: string;
+    profession: string;
+    companyOrSchool: string;
+    Location: {
+      latitude: number;
+      longitude: number;
+    };
+    language: string;
+  };
+  Home: undefined;
+  Drawer: undefined;
+  Public: undefined;
+  Ask: undefined;
+  Search: undefined;
+  Messages: undefined;
+  Help: undefined;
+  Information: undefined;
+  Notifications: undefined;
+  Profile: undefined;
+  LanguageChange: undefined;
+  LocationChange: undefined;
+  YourActivity: undefined;
+  EmailChange: undefined;
+  MediaView: {
+    media: string;
+    mediaType: 'image' | 'video';
+  };
+  UsersProfile: {
+    usersAuthUserId: string;
+  };
+  MessageComponent: {
+    recieverAuthUserId: string;
+  };
+  AppCamera: {
+    opponentAuthUserId: string;
+    myMedia?: string;
+    myMediaType?: 'image' | 'video';
+  };
+  PostView: {
+    postId: string;
+  };
+};
+const Stack = createNativeStackNavigator<RootStackParamList>();
+const App = () => {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="SplashScreen">
+        <Stack.Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="SignIn"
+          component={SignIn}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="SignUp"
+          component={SignUp}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="SignUpCredentials"
+          component={SignUpCredentials}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="ProfileCreating"
+          component={ProfileCreating}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Location"
+          component={Location}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Language"
+          component={Language}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Interest"
+          component={Interest}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Drawer"
+          component={Drawer}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Public"
+          component={Public}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Search"
+          component={Search}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Ask"
+          component={Ask}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Messages"
+          component={Messages}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Notifications"
+          component={Notifications}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Help"
+          component={Help}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Information"
+          component={Information}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="LanguageChange"
+          component={LanguageChange}
+          options={{
+            headerShown: false,
+          }}
+        />
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+        <Stack.Screen
+          name="LocationChange"
+          component={LocationChange}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="YourActivity"
+          component={YourActivity}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="EmailChange"
+          component={EmailChange}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="MediaView"
+          component={MediaView}
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="UsersProfile"
+          component={UsersProfile}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="MessageComponent"
+          component={MessageComponent}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="AppCamera"
+          component={AppCamera}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="PostView"
+          component={PostView}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default App;

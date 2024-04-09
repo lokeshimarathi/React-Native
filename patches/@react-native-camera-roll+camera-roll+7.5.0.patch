@@ -1,0 +1,31 @@
+diff --git a/node_modules/@react-native-camera-roll/camera-roll/android/build.gradle b/node_modules/@react-native-camera-roll/camera-roll/android/build.gradle
+index 6891fa3..5df5884 100644
+--- a/node_modules/@react-native-camera-roll/camera-roll/android/build.gradle
++++ b/node_modules/@react-native-camera-roll/camera-roll/android/build.gradle
+@@ -180,11 +180,12 @@ repositories {
+   google()
+   mavenLocal()
+   mavenCentral()
++
+ }
+ 
+ dependencies {
+     if (isNewArchitectureEnabled() && REACT_NATIVE_MINOR_VERSION < 71) {
+-        implementation project(":ReactAndroid")
++        compile project(":ReactAndroid")
+     } else {
+         //noinspection GradleDynamicVersion
+         implementation 'com.facebook.react:react-native:+'
+diff --git a/node_modules/@react-native-camera-roll/camera-roll/android/src/main/AndroidManifest.xml b/node_modules/@react-native-camera-roll/camera-roll/android/src/main/AndroidManifest.xml
+index dbda53f..98fb413 100644
+--- a/node_modules/@react-native-camera-roll/camera-roll/android/src/main/AndroidManifest.xml
++++ b/node_modules/@react-native-camera-roll/camera-roll/android/src/main/AndroidManifest.xml
+@@ -1,6 +1,6 @@
+ 
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-          package="com.reactnativecommunity.cameraroll">
++          >
+ 
+ </manifest>
+   
+\ No newline at end of file
