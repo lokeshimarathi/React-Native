@@ -1,3 +1,5 @@
+![01](https://github.com/lokeshimarathi/React-Native/assets/115028627/7983929f-524e-444a-9113-a0989e60f431)
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
