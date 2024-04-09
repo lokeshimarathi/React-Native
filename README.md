@@ -1,4 +1,4 @@
-![01](https://github.com/lokeshimarathi/React-Native/assets/115028627/7983929f-524e-444a-9113-a0989e60f431)
+![01](https://github.com/lokeshimarathi/React-Native/assets/115028627/7983929f-524e-444a-9113-a0989e60f431){:height="200px" width="300px"}
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
