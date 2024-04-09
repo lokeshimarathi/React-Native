@@ -1,3 +1,3 @@
 # React-Native
 Awesome React Native
-![ReactNative](https://github.com/lokeshimarathi/React-Native/assets/115028627/0c1d8273-6375-4dce-ba3d-6aa55de302a7)
+![rn](https://github.com/lokeshimarathi/React-Native/assets/115028627/78adc6e7-deb4-4061-a774-37e12dc8b568)
