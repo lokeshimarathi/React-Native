@@ -1,4 +1,4 @@
-![Add a heading (1)](https://github.com/lokeshimarathi/React-Native/assets/115028627/81a2ba2c-9d70-4334-b4b8-d0586cc13175)
+![Add a heading](https://github.com/lokeshimarathi/React-Native/assets/115028627/7b9e2911-bc26-4a83-afd8-f2c42e6a24b7)
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
